@@ -16,7 +16,7 @@ A professional SMTP testing system that sends automated daily emails to verify e
 ## 📁 Project Structure
 
 ```
-smtp-testing-system/
+SMTP/
 ├── app.py                 # Main Flask application
 ├── email_service.py       # SMTP service functions
 ├── requirements.txt       # Python dependencies
