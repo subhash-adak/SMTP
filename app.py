@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = 'smtp-testing-by-subhash-2025'
 # Initialize SMTP service
 init_mail_service(app)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'HEAD'])
 def home():
     """Home page"""
     template = """
@@ -102,7 +102,7 @@ def test_smtp_now():
             "error": str(e)
         }), 500
 
-@app.route('/smtp-status')
+@app.route('/smtp-status', methods=['GET', 'HEAD'])
 def smtp_status():
     """Get SMTP system status"""
     status = get_smtp_health()
