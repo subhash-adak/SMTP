@@ -345,7 +345,7 @@ This is an automated test email from SMTP Configuration System.
 📧 SMTP Testing by: Subhash
 📅 Date: {current_date}
 🕐 Time: {current_time} IST
-⏰ Frequency: Every 90 seconds (Auto-scheduler)
+⏰ Frequency: Every 24 Hours (Auto-scheduler)
 
 ✅ SMTP Configuration Status: Working
 🌐 Server: {os.getenv('MAIL_SERVER')}
@@ -425,9 +425,9 @@ Deployed on Render Cloud"""
 
 
 def run_daily_smtp_test(app):
-    """Run SMTP test every 90 seconds with self-pinging to stay awake"""
+    """Run SMTP test every 24 Hours with self-pinging to stay awake"""
     logging.info("🚀 SMTP Auto-scheduler started by Subhash")
-    logging.info("⏰ Will send emails every 90 seconds")
+    logging.info("⏰ Will send emails every 24 Hours")
     
     # Initial delay
     time.sleep(30)
@@ -458,8 +458,8 @@ def run_daily_smtp_test(app):
             # Try self-ping on error to keep service alive
             self_ping()
         
-        logging.info("😴 Next auto SMTP test in 90 seconds...")
-        time.sleep(90)  # 90 seconds
+        logging.info("😴 Next auto SMTP test in 24 Hours...")
+        time.sleep(86400)  # 24 Hours
 
 
 def run_keep_alive_ping():
@@ -495,7 +495,7 @@ def start_smtp_scheduler(app):
         ping_thread.start()
         
         logging.info("📬 SMTP Auto-scheduler started successfully!")
-        logging.info(f"📧 Will send emails every 90 seconds to: {len([e for e in TEST_RECIPIENTS if e])} addresses")
+        logging.info(f"📧 Will send emails every 24 Hours to: {len([e for e in TEST_RECIPIENTS if e])} addresses")
         logging.info("🔄 Keep-alive pinger also started")
         logging.info("👨‍💻 SMTP System configured by: Subhash")
         
@@ -522,6 +522,6 @@ def get_smtp_health():
         "keep_alive_running": "KeepAlivePinger" in thread_names,
         "test_recipients": len([e for e in TEST_RECIPIENTS if e]),
         "timestamp": now.strftime('%Y-%m-%d %H:%M:%S IST'),
-        "interval": "90 seconds (auto-scheduler)",
+        "interval": "24 Hours (auto-scheduler)",
         "threads": thread_names
     }
