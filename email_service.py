@@ -304,9 +304,8 @@ def get_current_time():
 def self_ping():
     """Ping own health endpoint to keep service awake"""
     try:
-        # Try to get the service URL from Render environment
-        service_name = os.getenv('RENDER_SERVICE_NAME', 'smtp-testing-system')
-        base_url = f"https://{service_name}.onrender.com"
+        # Use the known Render URL
+        base_url = "https://smtp-cd3p.onrender.com"
         
         # Alternative: check for custom domain or external URL
         if os.getenv('RENDER_EXTERNAL_URL'):
