@@ -187,7 +187,7 @@ def run_daily_smtp_test(app):
             logging.error(f"❌ SMTP test error: {str(e)}")
         
         logging.info("😴 Next SMTP test in 24 hours...")
-        time.sleep(86400)  # 24 hours
+        time.sleep(300)  # 24 hours
 
 
 def start_smtp_scheduler(app):
