@@ -184,13 +184,13 @@ def home():
                 <h3>👨‍💻 Developed by: Subhash</h3>
                 <p>✅ System Status: Active and Running on Render</p>
                 <p>📧 Purpose: SMTP Configuration Testing</p>
-                <p>⏰ Sends automated test emails every 90 seconds</p>
+                <p>⏰ Sends automated test emails every 24 Hours</p>
                 <p>🌐 Service URL: <code>https://smtp-cd3p.onrender.com</code></p>
             </div>
 
             <h3>🛠️ System Features:</h3>
             <ul>
-                <li>📧 Automated 90-second SMTP testing</li>
+                <li>📧 Automated 24 Hours SMTP testing</li>
                 <li>📊 System status reporting</li>
                 <li>📝 Email delivery monitoring</li>
                 <li>⚡ Real-time testing capabilities</li>
@@ -272,7 +272,7 @@ def show_config():
         "environment": os.getenv('ENVIRONMENT'),
         "configured_by": "Subhash",
         "service_url": "https://smtp-cd3p.onrender.com",
-        "auto_scheduler": "90 seconds interval"
+        "auto_scheduler": "24 Hours interval"
     })
 
 if __name__ == '__main__':
