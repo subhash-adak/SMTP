@@ -6,7 +6,10 @@ from pydantic import BaseModel
 from typing import Optional
 import logging
 import uvicorn
-
+import os
+from dotenv import load_dotenv
+# Load environment variables from .env file
+load_dotenv()
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -36,8 +39,8 @@ async def get_ip_geolocation(ip: str) -> dict:
     Fetches geolocation data from ipinfo.io.
     SIGNUP REQUIRED: Get a free token at https://ipinfo.io/signup
     """
-    API_TOKEN = "5be41b9696afa6"  # REPLACE THIS WITH YOUR TOKEN
-    if API_TOKEN == "5be41b9696afa6":
+    API_TOKEN = os.getenv("API_TOKEN")
+    if API_TOKEN == os.getenv("API_TOKEN") is None:
         return {"error": "Server configuration error: API token not set."}
     
     url = f"https://ipinfo.io/{ip}/json?token={API_TOKEN}"
